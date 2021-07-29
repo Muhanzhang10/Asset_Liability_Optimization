@@ -11,6 +11,8 @@ from saveFile import save
 path: path of the result to be stored; to be built later
 var: initial values of the variables; comes in as a list
 '''
+
+#如果改成逐月优化，函数需要加month变量
 def run(path = '/Users/zhangmuhan/Desktop/result.xlsx', var = var):
     #Asset total should not exceed 51000
     def asset_bound(after):
@@ -74,6 +76,7 @@ def run(path = '/Users/zhangmuhan/Desktop/result.xlsx', var = var):
             sum += balance_a[i] * interest_a[i]
         for i in range(len(balance_l)):
             sum -= balance_l[i] * interest_l[i]
+        #sum = sum * ((13 - month) * 2 - 1)
         
         return -sum
     
